@@ -1,7 +1,7 @@
-#terraform {
-#  backend "s3" {
-#    bucket = "terraform-state-xx70dpnh"
-#    key    = "terraform.tfstate"
-#    region = "eu-west-1"
-#  }
-#}
+terraform {
+  backend "s3" {
+    bucket = "terraform-state-p7lip2z0"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
