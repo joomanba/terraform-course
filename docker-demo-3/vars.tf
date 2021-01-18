@@ -42,3 +42,6 @@ variable "JENKINS_VERSION" {
   default = "2.204.1"
 }
 
+variable "TERRAFORM_VERSION" {
+  default = "0.14.4"
+}
