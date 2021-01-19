@@ -38,7 +38,7 @@ module "my-alb" {
   lb_name            = "my-alb"
   vpc_subnets        = module.vpc.public_subnets
   default_target_arn = module.my-service.target_group_arn
-  domain             = "*.ecs.newtech.academy"
+  domain             = "*.euijin.ga"
   internal           = false
   ecs_sg             = [module.my-ecs.cluster_sg]
 }
@@ -49,5 +49,5 @@ module "my-alb-rule" {
   priority         = 100
   target_group_arn = module.my-service.target_group_arn
   condition_field  = "host-header"
-  condition_values = ["subdomain.ecs.newtech.academy"]
+  condition_values = ["subdomain.euijin.ga"]
 }
