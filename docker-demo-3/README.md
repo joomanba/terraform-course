@@ -19,9 +19,18 @@ docker push 351276329499.dkr.ecr.us-east-1.amazonaws.com/myapp:${GIT_COMMIT}
 
 ### docker-demo-deploy 파이프라인 구성 
 1. String Parameter- *MYAPP_VERSION*
-1. 소스코드관리 - https://github.com/joomanba/terraform-course.git
+2. 소스코드관리 - https://github.com/joomanba/terraform-course.git
+3. scripts/configure-remote-state.sh 수정
+```
+set -ex
+AWS_REGION="us-east-1"
+S3_BUCKET=`aws s3 ls --region $AWS_REGION |grep terraform-state |tail -n1 |cut -d ' ' -f3`
+sed -i 's/terraform-state-xx70dpnh/'${S3_BUCKET}'/' backend.tf
+sed -i 's/#//g' backend.tf
+terraform init
+```
 
-2. Build (Execute shell)
+4. Build (Execute shell)
 ```
 cd docker-demo-3/
 scripts/configure-remote-state.sh
