@@ -29,6 +29,17 @@ sed -i 's/terraform-state-xx70dpnh/'${S3_BUCKET}'/' backend.tf
 sed -i 's/#//g' backend.tf
 terraform init
 ```
+```
+# backend.tf
+#terraform {
+#  backend "s3" {
+#    bucket = "terraform-state-xx70dpnh"
+#    key    = "terraform.tfstate"
+#    region = "us-east-1"
+#  }
+#}
+
+```
 
 4. Build (Execute shell)
 ```
